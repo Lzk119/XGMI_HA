@@ -223,6 +223,7 @@ python tools/send_command.py 192.168.1.100 "打开日光灯" --listen
 │   ├── services.yaml     服务定义
 │   ├── manifest.json
 │   ├── strings.json
+│   ├── brand/            集成图标与 logo（HA ≥ 2026.3 自动显示）
 │   └── translations/{en,zh-Hans}.json
 ├── tests/                          离线测试
 │   ├── ha_stub.py        homeassistant 最小桩
@@ -232,6 +233,18 @@ python tools/send_command.py 192.168.1.100 "打开日光灯" --listen
 │   └── send_command.py   直接向设备发指令
 └── hacs.json
 ```
+
+## 集成图标
+
+`custom_components/xgimi_lamp/brand/` 内置了极米官方风格的图标与 logo
+（四色 X 标 + XGIMI 字标，含 `@2x` 与暗色主题版本）：
+
+* **Home Assistant ≥ 2026.3**：自动显示，无需任何配置（本地 brand 图片优先于 CDN）
+* **更早版本**：不会显示这些图，但也不影响功能；如需要可向
+  [home-assistant/brands](https://github.com/home-assistant/brands) 仓库提交 PR
+
+> XGIMI 与极米相关标识为成都极米科技股份有限公司的商标/版权，
+> 此处仅用于识别对应的硬件品牌，不构成任何归属声明。
 
 ## 已知限制
 
