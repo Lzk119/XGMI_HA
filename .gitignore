@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+venv/
+.venv/
+env/
+ENV/
+
+# 测试与覆盖率
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# Home Assistant 运行时（如果你把仓库放在 config/ 下）
+home-assistant.log
+home-assistant.log.*
+home-assistant_v2.db*
+.storage/
+deps/
+tts/
+.backups/
+*.db
+
+# 本地配置（含密码/令牌，绝不入库）
+secrets.yaml
+.config/
+.cloud/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# 抓包与本地调试产物
+*.pcap
+*.pcapng
+.workbuddy/

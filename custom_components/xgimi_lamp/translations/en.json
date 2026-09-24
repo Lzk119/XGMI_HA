@@ -1,0 +1,73 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "XGIMI Magic Lamp",
+        "description": "Enter the LAN IP address of your XGIMI Magic Lamp. It must be reachable from Home Assistant and the projector must be powered on (networked).",
+        "data": {
+          "host": "IP address",
+          "name": "Name"
+        },
+        "data_description": {
+          "host": "For example 192.168.1.100",
+          "name": "Friendly name shown in Home Assistant"
+        }
+      }
+    },
+    "error": {
+      "invalid_host": "IP address must not be empty"
+    },
+    "abort": {
+      "already_configured": "This device is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "XGIMI Magic Lamp settings",
+        "description": "Configure the entity layout and the UDP command strings sent to {host}. The integration reloads automatically after saving; switching the entity layout may require a HA restart.",
+        "data": {
+          "light_shape": "Lamp entity layout",
+          "default_light_mode": "Default lamp mode",
+          "cmd_light_daylight": "Lamp on (daylight)",
+          "cmd_light_rhythm": "Lamp on (rhythm)",
+          "cmd_light_off": "Lamp off",
+          "cmd_projector_on": "Projector on",
+          "cmd_projector_off": "Projector off"
+        },
+        "data_description": {
+          "light_shape": "Split = one switch per light mode; Single = one light with an effect dropdown",
+          "default_light_mode": "Only used by the \"Single\" layout when turning on without a mode",
+          "cmd_light_daylight": "Default: 打开日光灯",
+          "cmd_light_rhythm": "Default: 打开节律光灯光",
+          "cmd_light_off": "Default: 关灯",
+          "cmd_projector_on": "Default: 打开投影仪",
+          "cmd_projector_off": "Default: 关闭投影仪"
+        }
+      }
+    },
+    "error": {
+      "empty_command": "Command string must not be empty"
+    }
+  },
+  "services": {
+    "send_command": {
+      "name": "Send custom command",
+      "description": "Send an arbitrary command string to the lamp, useful for debugging or verifying device-specific commands.",
+      "fields": {
+        "command": {
+          "name": "Command",
+          "description": "Command text to send, for example 打开日光灯."
+        },
+        "host": {
+          "name": "Device IP",
+          "description": "Target device IP. Can be omitted when only one device is configured."
+        },
+        "wait_response": {
+          "name": "Wait for response",
+          "description": "Wait for the device's action=20001 reply to verify connectivity."
+        }
+      }
+    }
+  }
+}

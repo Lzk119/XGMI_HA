@@ -1,0 +1,73 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "极米神灯",
+        "description": "填写极米神灯的局域网 IP 地址。设备需要与 Home Assistant 在同一网段，且投影仪处于开机（联网）状态。",
+        "data": {
+          "host": "设备 IP 地址",
+          "name": "设备名称"
+        },
+        "data_description": {
+          "host": "例如 192.168.1.100",
+          "name": "在 Home Assistant 中显示的名称"
+        }
+      }
+    },
+    "error": {
+      "invalid_host": "IP 地址不能为空"
+    },
+    "abort": {
+      "already_configured": "该设备已配置"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "极米神灯设置",
+        "description": "配置发往 {host} 的实体形态与 UDP 指令文本。改完保存后集成会自动重载；切换实体形态后可能需要重启一次 HA 才能看到新实体。",
+        "data": {
+          "light_shape": "灯实体形态",
+          "default_light_mode": "默认开灯模式",
+          "cmd_light_daylight": "开灯（日光灯）",
+          "cmd_light_rhythm": "开灯（节律光）",
+          "cmd_light_off": "关灯",
+          "cmd_projector_on": "打开投影仪",
+          "cmd_projector_off": "关闭投影仪"
+        },
+        "data_description": {
+          "light_shape": "分开＝日光灯/节律灯各一个开关；单灯体＝一个灯用 effect 下拉切换模式",
+          "default_light_mode": "仅「单灯体」形态生效：直接点开灯、没选模式时用它",
+          "cmd_light_daylight": "默认：打开日光灯",
+          "cmd_light_rhythm": "默认：打开节律光灯光",
+          "cmd_light_off": "默认：关灯",
+          "cmd_projector_on": "默认：打开投影仪",
+          "cmd_projector_off": "默认：关闭投影仪"
+        }
+      }
+    },
+    "error": {
+      "empty_command": "指令文本不能为空"
+    }
+  },
+  "services": {
+    "send_command": {
+      "name": "发送自定义指令",
+      "description": "向极米神灯发送任意指令文本，用于调试或验证机型指令。",
+      "fields": {
+        "command": {
+          "name": "指令内容",
+          "description": "要发送的中文指令文本，例如「打开日光灯」。"
+        },
+        "host": {
+          "name": "设备 IP",
+          "description": "目标设备 IP。只配置了一台设备时可留空。"
+        },
+        "wait_response": {
+          "name": "等待设备回包",
+          "description": "开启后会等待设备返回 action=20001 的应答，用于诊断链路的连通性。"
+        }
+      }
+    }
+  }
+}

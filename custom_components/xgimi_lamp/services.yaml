@@ -1,0 +1,25 @@
+send_command:
+  name: 发送自定义指令
+  description: 向极米神灯发送任意指令文本，用于调试或验证机型指令。
+  fields:
+    command:
+      name: 指令内容
+      description: 要发送的中文指令文本，例如「打开日光灯」。
+      required: true
+      example: 打开日光灯
+      selector:
+        text:
+    host:
+      name: 设备 IP
+      description: 目标设备 IP。只配置了一台设备时可留空。
+      required: false
+      example: 192.168.1.100
+      selector:
+        text:
+    wait_response:
+      name: 等待设备回包
+      description: 开启后会等待设备返回 action=20001 的应答，用于诊断链路的连通性。
+      required: false
+      default: false
+      selector:
+        boolean:
