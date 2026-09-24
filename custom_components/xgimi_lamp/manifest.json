@@ -1,13 +1,13 @@
 {
   "domain": "xgimi_lamp",
   "name": "极米神灯",
-  "version": "2.1.0",
+  "codeowners": ["@Lzk119"],
   "config_flow": true,
+  "documentation": "https://github.com/Lzk119/XGMI_HA",
   "integration_type": "device",
   "iot_class": "assumed_state",
+  "issue_tracker": "https://github.com/Lzk119/XGMI_HA/issues",
   "loggers": ["custom_components.xgimi_lamp"],
   "requirements": [],
-  "codeowners": ["@Lzk119"],
-  "documentation": "https://github.com/Lzk119/XGMI_HA",
-  "issue_tracker": "https://github.com/Lzk119/XGMI_HA/issues"
+  "version": "2.1.1"
 }
